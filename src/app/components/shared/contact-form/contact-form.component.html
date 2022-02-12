@@ -1,0 +1,70 @@
+<mat-card #ContainerRef1 class="cardBody">
+  <form [formGroup]="contactForm">
+
+    <mat-form-field>
+      <mat-label>Nombre completo</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Nombre Apellido"/>
+
+      <mat-hint *ngIf="!name?.hasError('minlength')&&(name?.dirty||name?.touched)" style="color: rgb(51, 156, 18);">
+        El nombre es valido
+      </mat-hint>
+      <mat-error *ngIf="name?.hasError('minlength') && !name?.hasError('required')">
+        Por favor ingresa un nombre valido (2 caracteres minimo)
+      </mat-error>
+      <mat-error *ngIf="name?.hasError('required')">
+        El nombre es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo </mat-label>
+        <input matInput type="text" formControlName="email" placeholder="correo@ejemplo.com"/>
+
+      <mat-hint *ngIf="!email?.hasError('email')&&(email?.dirty||email?.touched)" style="color: rgb(51, 156, 18);">
+        El correo es valido
+      </mat-hint>
+      <mat-error *ngIf="email?.hasError('email') && !email?.hasError('required')">
+        Por favor ingresa un correo valido
+      </mat-error>
+      <mat-error *ngIf="email?.hasError('required')">
+        El correo es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Telefono </mat-label>
+        <input matInput type="text" formControlName="phone" maxlength="11" placeholder="+9999999999"/>
+
+        <mat-hint *ngIf="!phone?.hasError('pattern')&&(phone?.dirty||phone?.touched)" style="color: rgb(51, 156, 18);">
+          El telefono es valido
+        </mat-hint>
+        <mat-error *ngIf="phone?.hasError('pattern') && !phone?.hasError('required')">
+          Por favor ingresa un telefono valido que empiece con + y 10 digitos
+        </mat-error>
+        <mat-error *ngIf="phone?.hasError('required')">
+          El telefono es <strong>requerido</strong>
+        </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Deja tu mensaje</mat-label>
+      <textarea matInput type="text" formControlName="message" placeholder="Escribe un mensaje"></textarea>
+
+      <mat-hint *ngIf="!message?.hasError('maxlength')&&(message?.dirty||message?.touched)" style="color: rgb(51, 156, 18);">
+        El mensaje es valido
+      </mat-hint>
+      <mat-error *ngIf="message?.hasError('maxlength') && !message?.hasError('required')">
+        Por favor ingresa un mensaje valido ({{maxLengthMessage}} caracteres maximo)
+      </mat-error>
+      <mat-error *ngIf="message?.hasError('required')">
+        El mensaje es <strong>requerido</strong>
+      </mat-error>
+
+    </mat-form-field>
+
+    <div>
+      <button mat-button color="primary" type="submit" [disabled]="!contactForm.valid">Enviar</button>
+    </div>
+
+  </form>
+</mat-card>

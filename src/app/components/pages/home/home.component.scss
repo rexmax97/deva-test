@@ -1,0 +1,31 @@
+table {
+  width: 80%;
+  margin: 0% 10%;
+}
+
+.tablePaginator{
+  margin: 0px 30vw 0px 10vw;
+}
+
+.messageContainer{
+  color: white;
+  font-size: 4em;
+  background: linear-gradient(349deg, #d5cb5347, #5a90bf);
+  padding: 10% 22%;
+}
+
+.contentContainer{
+
+}
+
+.loadingContainer{
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+

@@ -1,0 +1,45 @@
+<div class="messageContainer">
+  {{homeMessage}}
+</div>
+<div class="contentContainer">
+  <div class="loadingContainer" *ngIf="isLoading" >
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+    <mat-paginator class="tablePaginator" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef width ="20%" mat-sort-header> Titulo </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef width ="10%" mat-sort-header> Año </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="cast" >
+        <th mat-header-cell *matHeaderCellDef width ="50%" mat-sort-header> Reparto </th>
+        <td mat-cell *matCellDef="let element"> {{element.cast}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="genres" >
+        <th mat-header-cell *matHeaderCellDef width ="20%" mat-sort-header> Genero(s) </th>
+        <td mat-cell *matCellDef="let element"> {{element.genres}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+    </table>
+
+
+</div>
