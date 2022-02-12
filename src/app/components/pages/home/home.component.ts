@@ -4,7 +4,7 @@ import {MatProgressBar} from '@angular/material/progress-bar';
 import { MatSort, Sort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Movie } from 'src/app/interfaces/movie';
-import { MoviesService } from 'src/app/services/movies.service';
+import { MoviesService } from 'src/app/services/movies/movies.service';
 export interface PeriodicElement {
   name: string;
   position: number;

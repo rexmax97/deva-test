@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Movie } from '../interfaces/movie';
+import { Movie } from '../../interfaces/movie';
 /* const OPTIONS = {
   reportProgress: true,
   headers: new HttpHeaders({  'Access-Control-Allow-Origin':'*',

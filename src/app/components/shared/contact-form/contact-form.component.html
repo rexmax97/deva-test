@@ -1,5 +1,5 @@
 <mat-card #ContainerRef1 class="cardBody">
-  <form [formGroup]="contactForm">
+  <form [formGroup]="contactForm" (submit)="sendData(contactForm)">
 
     <mat-form-field>
       <mat-label>Nombre completo</mat-label>
@@ -54,7 +54,7 @@
         El mensaje es valido
       </mat-hint>
       <mat-error *ngIf="message?.hasError('maxlength') && !message?.hasError('required')">
-        Por favor ingresa un mensaje valido ({{maxLengthMessage}} caracteres maximo)
+        Por favor ingresa un mensaje valido ({{maxLengthMessage}} caracter{{maxLengthMessage>1?'es':''}} maximo)
       </mat-error>
       <mat-error *ngIf="message?.hasError('required')">
         El mensaje es <strong>requerido</strong>

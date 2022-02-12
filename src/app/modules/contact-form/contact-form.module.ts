@@ -5,6 +5,7 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { ContactService } from 'src/app/services/contact/contact.service';
 
 
 
@@ -19,14 +20,16 @@ import { MatCardModule } from '@angular/material/card';
      ReactiveFormsModule
   ],
   exports:[ ContactFormComponent],
-  providers:[]
+  providers:[ContactService]
 })
 export class ContactFormModule {
 
 
+  private apiUrl:string="";
+  private cs: ContactService = new ContactService();
 
-  sendData(apiUrl:string, data:any){
-
+  sendData(apiUrl="https://notfound",data:any){
+    this.cs.sendData(this.apiUrl,data);
   }
 
  }

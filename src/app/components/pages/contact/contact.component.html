@@ -3,7 +3,7 @@
 </div>
 <div class="contentContainer">
 <div class="contactForm">
-  <app-contact-form ></app-contact-form>
+  <app-contact-form #contactForm [maxLengthMessage]="10" (isValid)="subcribeValidForm($event)" (sendValidForm)="subscribeSendValidForm($event)" ></app-contact-form>
 </div>
 
 </div>
